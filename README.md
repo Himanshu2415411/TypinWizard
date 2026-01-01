@@ -1,70 +1,106 @@
-# React + TypeScript + Vite
+# Keyshift
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A minimalist typing speed test application built with React. Practice your typing skills, track your WPM (Words Per Minute), and improve your accuracy.
 
-Currently, two official plugins are available:
+![React](https://img.shields.io/badge/React-19-61DAFB?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.8-3178C6?logo=typescript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4-06B6D4?logo=tailwindcss)
+![Vite](https://img.shields.io/badge/Vite-7-646CFF?logo=vite)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Real-time Statistics** - Track your WPM, accuracy, typos, and elapsed time as you type
+- **Multiple Modes**
+  - **Time Mode** - Focus on time elapsed while typing
+  - **Words Mode** - Track word count progress
+  - **Zen Mode** - Distraction-free typing experience
+- **Case Sensitivity Toggle** - Enable/disable case-sensitive matching
+- **Results Dashboard** - View your performance with an interactive WPM chart
+- **Responsive Design** - Clean, dark-themed interface
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech Stack
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [React 19](https://react.dev/) - UI library
+- [TypeScript](https://www.typescriptlang.org/) - Type safety
+- [Vite](https://vitejs.dev/) - Build tool and dev server
+- [Tailwind CSS 4](https://tailwindcss.com/) - Styling
+- [Zustand](https://zustand-demo.pmnd.rs/) - State management
+- [Recharts](https://recharts.org/) - Charts for results visualization
+- [Lucide React](https://lucide.dev/) - Icons
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18 or higher) or [Bun](https://bun.sh/)
+
+### Installation
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/keyshift.git
+cd keyshift
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+# Using npm
+npm install
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+# Using bun
+bun install
 ```
-# keyshift
+
+3. Start the development server:
+
+```bash
+# Using npm
+npm run dev
+
+# Using bun
+bun dev
+```
+
+4. Open your browser and navigate to `http://localhost:5173`
+
+## Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+
+## How to Use
+
+1. Click on the typing area to focus
+2. Start typing the displayed text
+3. The timer begins automatically when you type your first character
+4. Use the config bar at the top to:
+   - Switch between Time, Words, or Zen modes
+   - Toggle real-time stats display
+   - Enable/disable case sensitivity
+5. When you complete the text, view your results with WPM chart
+6. Click the reset button to try again with a new text
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── ConfigBar.tsx    # Mode and settings controls
+│   ├── ResultDialog.tsx # Results popup with chart
+│   ├── Stats.tsx        # Real-time statistics display
+│   └── TypingArea.tsx   # Main typing interface
+├── App.tsx              # Main application component
+├── data.ts              # Practice text quotes
+├── store.ts             # Zustand state management
+└── main.tsx             # Application entry point
+```
+
+## License
+
+MIT
