@@ -7,10 +7,25 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
+# Dependencies
 node_modules
+
+# Build outputs
 dist
 dist-ssr
-*.local
+.vite
+backend/dist
+backend/build
+
+# Environment variables
+.env
+.env.*
+
+# Prisma
+backend/prisma/migrations/**/migration_lock.toml
+
+# Package manager
+bun.lock
 
 # Editor directories and files
 .vscode/*
